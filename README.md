@@ -1,9 +1,8 @@
 ﻿# NITDA_CHALLENGE
 ## Challenge
-> Title
-``bash
+```bash
 Build advanced web crawling tools that navigate the dark web, collect relevant data, and provide organizations with insights into emerging threats and vulnerabilities. This tool should feature an analytics to process and categorize unstructured dark web data, providing actionable insights to security teams
-``
+```
 ## Challenge Outline and Objectives
 - ` Legal and Ethical Considerations`
     - Understand the legal and ethical implications of crawling the dark web. Ensure that you comply with all relevant laws and regulations, such as cybersecurity and privacy laws.
