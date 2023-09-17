@@ -26,7 +26,8 @@ with Controller.from_port(port=9051) as controller:
     queue = [url]
 
     # Get the list of keywords to search for
-    keywords = input('Enter a list of keywords to search for, separated by commas: ').split(',')
+    keywords = input(
+        'Enter a list of keywords to search for, separated by commas: ').split(',')
 
     # Crawl the links
     while queue:
