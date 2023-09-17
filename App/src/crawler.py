@@ -1,72 +1,60 @@
-import time
 import requests
+import time
 from stem import Signal
 from stem.control import Controller
 from bs4 import BeautifulSoup
 
-# Set the number of links to crawl
-num_links_to_crawl = 100
+def initialize_tor_controller(password):
+    with Controller.from_port(port=9051) as controller:
+        controller.authenticate(password=password)
+        return controller
 
-# Set the user agent to use for the request
-user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+def get_links_from_url(url, headers):
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    links = soup.find_all('a')
+    return [a.get('href') for a in links]
 
-# Set the headers for the request
-headers = {'User-Agent': user_agent}
-
-# Initialize the controller for the Tor network
-with Controller.from_port(port=9051) as controller:
-    # Set the controller password
-    controller.authenticate(password='mypassword')
-
-    # Set the starting URL
-    url = 'http://example.com'
-
-    # Initialize the visited set and the link queue
+def crawl_links(start_url, num_links_to_crawl, keywords, user_agent):
     visited = set()
-    queue = [url]
+    queue = [start_url]
+    headers = {'User-Agent': user_agent}
 
-    # Get the list of keywords to search for
-    keywords = input(
-        'Enter a list of keywords to search for, separated by commas: ').split(',')
+    with initialize_tor_controller('mypassword') as controller:
+        while queue:
+            link = queue.pop(0)
 
-    # Crawl the links
-    while queue:
-        # Get the next link in the queue
-        link = queue.pop(0)
+            if link in visited:
+                continue
 
-        # Skip the link if it has already been visited
-        if link in visited:
-            continue
+            controller.signal(Signal.NEWNYM)
+            links = get_links_from_url(link, headers)
 
-        # Set the new IP address
-        controller.signal(Signal.NEWNYM)
+            for href in links:
+                if any(keyword in href for keyword in keywords):
+                    queue.append(href)
 
-        # Send the request to the URL
-        response = requests.get(link, headers=headers)
+            visited.add(link)
+            print(f'Title: {get_page_title(link)}\nURL: {link}')
 
-        # Parse the response
-        soup = BeautifulSoup(response.text, 'html.parser')
+            if len(visited) >= num_links_to_crawl:
+                break
 
-        # Find all links on the page
-        links = soup.find_all('a')
+    return visited
 
-        # Add any links that contain the keywords to the queue
-        for a in links:
-            href = a.get('href')
-            if any(keyword in href for keyword in keywords):
-                queue.append(href)
+def get_page_title(url, headers):
+    response = requests.get(url, headers=headers)
+    soup = BeautifulSoup(response.text, 'html.parser')
+    return soup.title.string
 
-        # Add the link to the visited set
-        visited.add(link)
+if __name__ == "__main__":
+    num_links_to_crawl = 100
+    user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36'
+    start_url = 'http://example.com'
+    keywords = input('Enter a list of keywords to search for, separated by commas: ').split(',')
+    
+    crawled_links = crawl_links(start_url, num_links_to_crawl, keywords, user_agent)
 
-        # Print the title and URL of the page
-        print(soup.title.string, link)
-
-        # Check if the number of visited links has reached the limit
-        if len(visited) >= num_links_to_crawl:
-            break
-
-# Print the visited links
-print('Visited links:')
-for link in visited:
-    print(link)
+    print('Visited links:')
+    for link in crawled_links:
+        print(link)
