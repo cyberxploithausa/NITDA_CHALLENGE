@@ -23,7 +23,7 @@ def crawl_links(start_url, num_links_to_crawl, keywords, user_agent):
     queue = [start_url]
     headers = {'User-Agent': user_agent}
 
-    with initialize_tor_controller('mypassword') as controller:
+    with initialize_tor_controller('3BB5F9D9E5323A9C6060A686DBAAEF03373E83CAD054A0598A3C7A8090') as controller:
         while queue:
             link = queue.pop(0)
 
