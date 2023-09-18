@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 def initialize_tor_controller(password):
     with Controller.from_port(port=9051) as controller:
-        controller.authenticate(password=password)
+        controller.authenticate(password='cyberxploithausa')
         return controller
 
 
