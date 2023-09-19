@@ -1,5 +1,5 @@
 import os
 
 
-
-if os.sys('tor' else 
+# Starting Tor service
+os.system('\Desktop\TorBrowser\Browser\Tor\tor.exe' if os.name=='nt' else 'service tor start')
