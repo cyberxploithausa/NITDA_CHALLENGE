@@ -71,8 +71,11 @@
 import requests
 import random
 import crawler
-import tor_config
+from tor_config import torCon
+import time
+#from setup import start_tor # type: ignore
 
+#SLEEP = time.sleep(1)
 
 def browse():
     #lets set up some fake user agents
@@ -86,7 +89,7 @@ def browse():
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"]
     user_agent = random.choice(user_agents)
     HEADER = {'User-Agent': user_agent}
-    proxies = tor_config.torCon()
+    proxies = torCon()
     URLS = f"{ahmia}/search/?q={search}"    
     response = requests.get(url=URLS, proxies=proxies, headers=HEADER)
     if response.status_code == 200:
@@ -96,11 +99,21 @@ def browse():
 
 
 if __name__ == "__main__":
-    print("Starting to Access The Dark Web...")
+    #start_tor()
     ahmia = 'http://juhanurmihxlp77nkq76byazcldy2hlmovfu2epvl5ankdibsot4csyd.onion'
+    #check_for_vpn()
+    #SLEEP
+    time.sleep(1)
+    print("Starting to Access The Dark Web...")
+    #SLEEP
+    time.sleep(1)
     search = input("What are you looking for: ")
+    time.sleep(1)
+    print("Surfing to Dark Web as Requested...")
+
     browse()
-    #tor_config.torCon()
+    
+ 
 
 
 
