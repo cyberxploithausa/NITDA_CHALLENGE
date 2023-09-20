@@ -73,6 +73,8 @@ import random
 import crawler
 from tor_config import torCon
 import time
+from bs4 import BeautifulSoup
+import re
 #from setup import start_tor # type: ignore
 
 #SLEEP = time.sleep(1)
@@ -95,7 +97,19 @@ def browse():
     if response.status_code == 200:
         #content = response.content.decode()
         content = response.text
-        print(content)
+        #soup = BeautifulSoup(content, 'html.parser')
+        #links = soup.find_all('a')
+        #all_links = [a.get('href') for a in links]
+        #print(all_links)
+        regex = "\w+\.onion"
+        minedate = re.findall(regex, content)
+        import numpy as N
+        res = N.array(minedate)
+        unique = N.unique(res)
+        print(unique)
+        #print(minedate)
+        
+
 
 
 if __name__ == "__main__":
@@ -107,7 +121,7 @@ if __name__ == "__main__":
     print("Starting to Access The Dark Web...")
     #SLEEP
     time.sleep(1)
-    search = input("What are you looking for: ")
+    search = input("What are you looking for: ").split()
     time.sleep(1)
     print("Surfing to Dark Web as Requested...")
 
