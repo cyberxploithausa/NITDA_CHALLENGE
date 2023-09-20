@@ -87,8 +87,9 @@ def browse():
                     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36"]
     user_agent = random.choice(user_agents)
     HEADER = {'User-Agent': user_agent}
+    proxies = tor_config.torCon()
     URLS = "http://juhanurmihxlp77nkq76byazcldy2hlmovfu2epvl5ankdibsot4csyd.onion/"    
-    response = requests.get(url=URLS, proxies=tor_config.torCon(), headers=HEADER)
+    response = requests.get(url=URLS, proxies=proxies, headers=HEADER)
     if response.status_code == 200:
         content = response.content.decode()
         print(content)
@@ -98,3 +99,11 @@ if __name__ == "__main__":
     browse()
     #tor_config.torCon()
 
+
+
+""" 
+torch = http://torchdeedp3i2jigzjdmfpn5ttjhthh5wbmda2rr3jvqjg5p77c54dqd.onion/
+haystak = http://haystak5njsmn2hqkewecpaxetahtwhsbsa64jom2k22z5afxhnpxfid.onion/
+not evil = http://hss3uro2hsxfogfq.onion.to/index.php
+
+"""
