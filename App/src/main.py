@@ -87,14 +87,18 @@ def browse():
     user_agent = random.choice(user_agents)
     HEADER = {'User-Agent': user_agent}
     proxies = tor_config.torCon()
-    URLS = "http://juhanurmihxlp77nkq76byazcldy2hlmovfu2epvl5ankdibsot4csyd.onion/"    
+    URLS = f"{ahmia}/search/?q={search}"    
     response = requests.get(url=URLS, proxies=proxies, headers=HEADER)
     if response.status_code == 200:
-        content = response.content.decode()
+        #content = response.content.decode()
+        content = response.text
         print(content)
 
 
 if __name__ == "__main__":
+    print("Starting to Access The Dark Web...")
+    ahmia = 'http://juhanurmihxlp77nkq76byazcldy2hlmovfu2epvl5ankdibsot4csyd.onion'
+    search = input("What are you looking for: ")
     browse()
     #tor_config.torCon()
 

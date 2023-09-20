@@ -44,7 +44,7 @@ python main.py
 ```
 
 ## TO-Dos
-```bash Things to note
+```bash
     - Connect to Tor network and browse the dark web | status = Done
     - Search for keywords base of a search engine
     - Crawl through the results and keep track of every link
