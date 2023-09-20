@@ -1,4 +1,28 @@
-﻿﻿# NITDA_CHALLENGE
+﻿﻿# NITDA_CHALLENGE DarkWeb Crawler
+
+![Python](https://img.shields.io/badge/Python-3.x-blue)
+![Tor](https://img.shields.io/badge/Tor-Support-green)
+
+DarkWeb Crawler is a Python project that allows you to browse the dark web using the Tor network and perform web crawling to find .onion links based on specific keywords. This tool provides an interface for accessing the dark web securely and searching for content of interest.
+
+## Features
+
+- Access the dark web securely using the Tor network.
+- Search for .onion links based on user-defined keywords.
+- Utilize a variety of fake user agents to maintain anonymity.
+- Extract and display unique .onion links from the search results.
+
+## Prerequisites
+
+- Python 3.x
+- [Requests](https://pypi.org/project/requests/)
+- [Beautiful Soup](https://pypi.org/project/beautifulsoup4/)
+- [Tor](https://www.torproject.org/)
+
+## Disclaimer
+This project is intended for educational and research purposes only. Use it responsibly and ensure compliance with all legal and ethical guidelines when accessing the dark web.
+
+![ScreenShot](image.png)
 ## Challenge
 ```bash
 Build advanced web crawling tools that navigate the dark web, collect relevant data, and provide organizations with insights into emerging threats and vulnerabilities. This tool should feature an analytics to process and categorize unstructured dark web data, providing actionable insights to security teams
