@@ -44,10 +44,11 @@ python main.py
 ```
 
 ## TO-Dos
-> Things to note
-> Connect to Tor network and browse the dark web | status = Done
-> Search for keywords base of a search engine
-> Crawl through the results and keep track of every link
-> Store the links of the crawled result in text file for now
-> Detect Threats and vulnerabilities of technologies
-> Raise Alarm of the above
+```bash Things to note
+    - Connect to Tor network and browse the dark web | status = Done
+    - Search for keywords base of a search engine
+    - Crawl through the results and keep track of every link
+    - Store the links of the crawled result in text file for now
+    - Detect Threats and vulnerabilities of technologies
+    - Raise Alarm of the above
+```
