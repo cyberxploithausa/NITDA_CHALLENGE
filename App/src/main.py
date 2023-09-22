@@ -75,11 +75,12 @@ from tor_config import torCon
 import time
 from bs4 import BeautifulSoup
 import re
+import csv
 #from setup import start_tor # type: ignore
 
 #SLEEP = time.sleep(1)
 
-def browse():
+def main():
     #lets set up some fake user agents
     user_agents = ["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19577" \
                 ,"Mozilla/5.0 (X11) AppleWebKit/62.41 (KHTML, like Gecko) Edge/17.10859 Safari/452.6" \
@@ -106,7 +107,24 @@ def browse():
         import numpy as N
         res = N.array(minedate)
         unique = N.unique(res)
-        print(unique)
+        confirm_data = unique.tolist()
+        #print(type(confirm_data))
+        data_column = []
+        for item in confirm_data:
+            data_column.append(item)
+        with open('search_links.csv', 'w', newline="") as data:
+            csv_writer = csv.writer(data)
+            for item in data_column:
+                csv_writer.writerow([item])
+            
+        
+            
+                
+            
+                
+           
+        
+            #print(unique)
         #print(minedate)
         
 
@@ -118,14 +136,14 @@ if __name__ == "__main__":
     #check_for_vpn()
     #SLEEP
     time.sleep(1)
-    print("Starting to Access The Dark Web...")
+    print("[+] Starting to Access The Dark Web...")
     #SLEEP
     time.sleep(1)
     search = input("What are you looking for: ").split()
     time.sleep(1)
-    print("Surfing to Dark Web as Requested...")
+    print("[+] Surfing to Dark Web as Requested...")
 
-    browse()
+    main()
     
  
 
