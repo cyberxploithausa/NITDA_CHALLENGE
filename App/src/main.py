@@ -76,6 +76,7 @@ import time
 from bs4 import BeautifulSoup
 import re
 import csv
+import os
 #from setup import start_tor # type: ignore
 
 #SLEEP = time.sleep(1)
@@ -109,24 +110,35 @@ def main():
         unique = N.unique(res)
         confirm_data = unique.tolist()
         #print(type(confirm_data))
+        # data_column = []
+        # for item in confirm_data:
+        #     data_column.append(item)
+        # with open('search_links.csv', 'w', newline="") as data:
+        #     csv_writer = csv.writer(data)
+        #     for item in data_column:
+        #         csv_writer.writerow([item])
+        #         print('[+] All links are saved')
+        # path = os.mkdir('C:\Users\cyberxploit\Desktop\NITDA_CHALLENGE\App\Results')
+
         data_column = []
         for item in confirm_data:
             data_column.append(item)
-        with open('search_links.csv', 'w', newline="") as data:
+        output_folder = "../Results"
+        output_file = "links.csv"
+
+        if not os.path.exists(output_folder):
+            os.mkdir(output_folder)
+        output_path = os.path.join(output_folder, output_file)
+
+        with open(output_path, 'w', newline="") as data:
             csv_writer = csv.writer(data)
             for item in data_column:
                 csv_writer.writerow([item])
-            
-        
-            
-                
-            
-                
-           
-        
-            #print(unique)
-        #print(minedate)
-        
+            print('[+] All links are saved')
+    elif response.status_code == 404:
+        print("Search Not Found!!!")
+    else:
+        print("Search Not Reachable!!!")
 
 
 
