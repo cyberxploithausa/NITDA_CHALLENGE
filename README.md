@@ -63,6 +63,10 @@ cd NITDA_CHALLENGE
 pip install -r requirements.txt
 cd App/config
 python setup.py
+```
+> Open a new Tab in a Terminal / Command prompt and Navigate to the cloned directory
+
+```bash
 cd ../src
 python main.py
 ```
