@@ -57,11 +57,14 @@ Build advanced web crawling tools that navigate the dark web, collect relevant d
     - Encourage feedback from users and stakeholders to enhance the tool's capabilities and accuracy over time.
 
 ## INSTALLATION
-> You need to make sure that you have Tor installed on your Operating System. For Linux users you can install Tor by:
+You need to make sure that you have Tor installed on your Operating System. 
+### LINUX
+> For Linux users you can install Tor by:
 ```bash
 sudo apt install tor
 ```
-> For Windows users you can download [Tor Browser](https://www.torproject.org) and it comes pre-packaged with Tor. You can find Tor.exe in (pathToWhereYouInstallTorBrowser\Tor Browser\Browser\TorBrowser\Tor\tor.exe). After Starting Tor the continue the below:
+### WINDOWS
+> For Windows users you can download [Tor Browser](https://www.torproject.org) and it comes pre-packaged with Tor. You can find Tor.exe in (pathToWhereYouInstallTorBrowser\TorBrowser\Browser\TorBrowser\Tor\tor.exe). After Starting Tor the continue the below:
 ```bash
 git clone https://github.com/cyberxploithausa/NITDA_CHALLENGE.git
 cd NITDA_CHALLENGE
