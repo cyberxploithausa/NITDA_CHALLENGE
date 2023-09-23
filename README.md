@@ -56,7 +56,12 @@ Build advanced web crawling tools that navigate the dark web, collect relevant d
 - ` Feedback and Improvement`
     - Encourage feedback from users and stakeholders to enhance the tool's capabilities and accuracy over time.
 
-## USAGE
+## INSTALLATION
+> You need to make sure that you have Tor installed on your Operating System. For Linux users you can install Tor by:
+```bash
+sudo apt install tor
+```
+> For Windows users you can download [Tor Browser](https://www.torproject.org) and it comes pre-packaged with Tor. You can find Tor.exe in (pathToWhereYouInstallTorBrowser\Tor Browser\Browser\TorBrowser\Tor\tor.exe). After Starting Tor the continue the below:
 ```bash
 git clone https://github.com/cyberxploithausa/NITDA_CHALLENGE.git
 cd NITDA_CHALLENGE
@@ -67,7 +72,8 @@ python setup.py
 > Open a new Tab in a Terminal / Command prompt and Navigate to the cloned directory
 
 ```bash
-cd ../src
+cd NITDA_CHALLENGE
+cd App/src
 python main.py
 ```
 
