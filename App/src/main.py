@@ -65,3 +65,5 @@ if __name__ == "__main__":
     for search in searches:
         print(f"[+] Surfing to Dark Web for '{search}'...")
         browse(search, output_folder)
+
+# [Onniforums] http://envoyyvazgz2wbkq65md7dcqsgmujmgksowhx2446yep7tgnpfvlxbqd.onion/index.php
