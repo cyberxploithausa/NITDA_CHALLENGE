@@ -36,7 +36,7 @@ def browse(search, output_folder):
         output_file = f"{search}_links.csv"
         output_path = os.path.join(output_folder, output_file)
 
-        with open(output_path, 'w', newline="") as data:
+        with open(output_path, 'a', newline="") as data:
             csv_writer = csv.writer(data)
             for item in unique:
                 csv_writer.writerow([item])
