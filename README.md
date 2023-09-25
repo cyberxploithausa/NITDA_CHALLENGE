@@ -62,6 +62,12 @@ You need to make sure that you have Tor installed on your Operating System.
 > For Linux users you can install Tor by:
 ```bash
 sudo apt install tor
+sudo service tor start
+git clone https://github.com/cyberxploithausa/NITDA_CHALLENGE.git
+cd NITDA_CHALLENGE
+pip install -r requirements.txt
+cd App/src
+python main.py
 ```
 ### WINDOWS
 > For Windows users you can download [Tor Browser](https://www.torproject.org) and it comes pre-packaged with Tor. You can find Tor.exe in (Desktop\TorBrowser\Browser\TorBrowser\Tor\tor.exe) and run it. After Starting Tor, Open a new CMD / Terminal and continue below:
