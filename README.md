@@ -14,7 +14,7 @@ DarkWeb Crawler is a Python project that allows you to browse the dark web using
 
 ## Prerequisites
 
-- Python 3.x
+- [Python 3.x](https://www.python.org/downloads/release/python-3115/)
 - [Requests](https://pypi.org/project/requests/)
 - [Beautiful Soup](https://pypi.org/project/beautifulsoup4/)
 - [Tor](https://www.torproject.org/)
