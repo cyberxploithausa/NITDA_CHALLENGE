@@ -82,9 +82,9 @@ python main.py
 ## TO-Dos
 ```bash
 - Connect to Tor network and browse the dark web | status = Done
-- Search for keywords base of a search engine
-- Crawl through the results and keep track of every link
-- Store the links of the crawled result in text file for now
+- Search for keywords base of a search engine | status = Done
+- Crawl through the results and keep track of every link | status = Done
+- Store the links of the crawled result in text file for now | status = Done
 - Detect Threats and vulnerabilities of technologies
 - Raise Alarm of the above
 ```
