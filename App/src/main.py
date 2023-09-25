@@ -80,6 +80,7 @@ import re
 import requests
 from bs4 import BeautifulSoup
 from tor_config import torCon
+from topic_based import monitor_topics
 
 def browse(search, output_folder):
     user_agents = ["Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 Edge/18.19577",
@@ -139,5 +140,6 @@ if __name__ == "__main__":
     for search in searches:
         print(f"[+] Surfing to Dark Web for '{search}'...")
         browse(search, output_folder)
+    monitor_topics()
 
 # [Onniforums] http://envoyyvazgz2wbkq65md7dcqsgmujmgksowhx2446yep7tgnpfvlxbqd.onion/index.php

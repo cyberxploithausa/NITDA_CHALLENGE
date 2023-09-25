@@ -2,7 +2,7 @@ import requests
 import time
 
 # List of dark web websites related to topics of interest
-dark_web_sites = ['http://website1.onion', 'http://website2.onion', 'http://website3.onion']
+dark_web_sites = ['http://dreadytofatroptsdj6io7l3xptbet6onoyno2yv7jicoxknyazubrad.onion', 'http://hacktowns3sba2xavxecm23aoocvzciaxirh3vekg2ovzdjgjxedfvqd.onion', 'http://cryptbbtg65gibadeeo2awe3j7s6evg7eklserehqr4w4e2bis5tebid.onion']
 
 def monitor_topics():
     while True:
@@ -26,7 +26,7 @@ def monitor_topics():
 def is_topic_of_interest(content):
     # Implement your logic to determine if the content contains topics of interest
     # For example, search for specific keywords or patterns
-
+    
     # Return True if a topic of interest is found, otherwise False
     return False
 
@@ -35,5 +35,5 @@ def send_alert(site_url):
     # You can send an email, log the alert, or use any other notification method
     print(f"Alert: Topics of interest detected on {site_url}")
 
-if __name__ == "__main__":
-    monitor_topics()
+# if __name__ == "__main__":
+#     monitor_topics()
